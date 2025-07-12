@@ -35,11 +35,6 @@ def SearchTaskList(searchWord):
     for i in range(len(task_status)):
         if searchWord == task_status[i]: taskIndex.append(i)
 
-    PrintTasks(taskIndex)
-
-def PrintTasks(list):
-    taskIndex = list.copy()
-
     print(">---------<")
 
     for i in range(len(taskIndex)):
@@ -47,6 +42,16 @@ def PrintTasks(list):
         print(task_status[taskIndex[i]])
         print(task_createdAt[taskIndex[i]])
         print(task_updatedAt[taskIndex[i]])
+        print(">---------<")
+
+def PrintTasks():
+    print(">---------<")
+
+    for i in range(len(task_description)):
+        print(task_description[i])
+        print(task_status[i])
+        print(task_createdAt[i])
+        print(task_updatedAt[i])
         print(">---------<")
 
 
@@ -88,7 +93,7 @@ while trackerIsRunning:
             SearchTaskList("in-progress")
 
         case "list all":
-            PrintTasks(task_status)
+            PrintTasks()
 
         case "quit":
             trackerIsRunning = False
